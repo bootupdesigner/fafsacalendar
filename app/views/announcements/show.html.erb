@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @announcement.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @announcement.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @announcement.user_id %>
+</p>
+<% if (user_signed_in? && (current_user.id == @announcement.user.id)) %>
+<%= link_to 'Edit', edit_announcement_path(@announcement) %> |
+<% end %>
+<%= link_to 'Back', announcements_path %>
