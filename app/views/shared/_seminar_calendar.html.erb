@@ -1,0 +1,10 @@
+<h2>Event Calendar</h2>
+
+<%= month_calendar(event: @seminars) do |date, seminars| %>
+    <%= date %>
+    <% seminars.each do |seminar| %>
+        <div>
+          <%= seminar.title %>
+        </div>
+      <% end %>
+  <% end %>

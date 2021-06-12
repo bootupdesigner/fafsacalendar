@@ -16,9 +16,23 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @seminar.user_id %>
+<strong>Image URl</strong>
+<%= @seminar.image %>
 </p>
+
+<p>
+<strong>Description</strong>
+<%= @seminar.description %>
+</p>
+
+<p>There are <%= @seminar.signups.count %> people attending this event.</p>
+
+<% if @seminar.signups.count == 4 %>
+<p>Closed</p>
+
+<% else %>
+<%= render 'signups/seminar_signup' %>
+<% end %>
 
 <%= link_to 'Edit', edit_seminar_path(@seminar) %> |
 <%= link_to 'Back', seminars_path %>

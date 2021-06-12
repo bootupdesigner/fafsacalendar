@@ -10,10 +10,7 @@
   <%= @announcement.description %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @announcement.user_id %>
-</p>
+
 <% if (user_signed_in? && (current_user.id == @announcement.user.id)) %>
 <%= link_to 'Edit', edit_announcement_path(@announcement) %> |
 <% end %>

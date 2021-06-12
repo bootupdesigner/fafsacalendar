@@ -4,8 +4,9 @@ class SeminarsController < ApplicationController
   # GET /seminars or /seminars.json
   def index
     start_date = params.fetch(:start_date, Date.today).to_date
-    @meetings = Seminar.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
-  
+    @seminars = Seminar.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    
+    @signups = Signup.all
   end
 
   # GET /seminars/1 or /seminars/1.json
@@ -66,6 +67,6 @@ class SeminarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def seminar_params
-      params.require(:seminar).permit(:title, :start_time, :end_time, :user_id)
+      params.require(:seminar).permit(:title, :start_time, :end_time, :user_id, :description, :image)
     end
 end

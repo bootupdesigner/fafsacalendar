@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_184739) do
+ActiveRecord::Schema.define(version: 2021_06_11_205419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,22 @@ ActiveRecord::Schema.define(version: 2021_06_11_184739) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "attending"
+    t.boolean "not_attending"
+    t.text "description"
+    t.string "image"
     t.index ["user_id"], name: "index_seminars_on_user_id"
+  end
+
+  create_table "signups", force: :cascade do |t|
+    t.string "full_name"
+    t.boolean "attending"
+    t.bigint "user_id", null: false
+    t.bigint "seminar_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["seminar_id"], name: "index_signups_on_seminar_id"
+    t.index ["user_id"], name: "index_signups_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +63,6 @@ ActiveRecord::Schema.define(version: 2021_06_11_184739) do
 
   add_foreign_key "announcements", "users"
   add_foreign_key "seminars", "users"
+  add_foreign_key "signups", "seminars"
+  add_foreign_key "signups", "users"
 end
