@@ -21,12 +21,14 @@ class CounselingsController < ApplicationController
 
   # POST /counselings or /counselings.json
   def create
+    @meeting = Meeting.find(params[:meeting_id])
+
     @counseling = Counseling.new(counseling_params)
 
     respond_to do |format|
       if @counseling.save
-        format.html { redirect_to @counseling, notice: "Counseling was successfully created." }
-        format.json { render :show, status: :created, location: @counseling }
+        format.html { redirect_to @meeting, notice: "Counseling was successfully created." }
+        format.json { render :show, status: :created, location: @meeting }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @counseling.errors, status: :unprocessable_entity }

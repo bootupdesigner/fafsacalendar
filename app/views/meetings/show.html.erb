@@ -25,5 +25,14 @@
   <%= @meeting.user_id %>
 </p>
 
+<h2>Register for One-On-One Help</h2>
+
+<% if @meeting.counselings.count == 1 %>
+<p style="color: #ff0000">Closed</p>
+
+<% else %>
+<%= render 'counseling_signup' %>
+<% end %>
+
 <%= link_to 'Edit', edit_meeting_path(@meeting) %> |
 <%= link_to 'Back', meetings_path %>

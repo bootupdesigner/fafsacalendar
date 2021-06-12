@@ -1,11 +1,11 @@
-<h2>Event Calendar</h2>
+<h2 class="text-center">Event Calendar</h2>
 
 <%= month_calendar(events: @seminars) do |date, seminars| %>
     <%= date %>
 
     <% seminars.each do |seminar| %>
         <div>
-          <p><%= seminar.title %></p>
+        <p><%= link_to seminar.title, seminar %></p>
         </div>
       <% end %>
   <% end %>

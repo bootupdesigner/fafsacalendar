@@ -1,6 +1,6 @@
 <h2>Upcoming Events</h2>
 <% @seminars.each do |seminar| %>
     <div>
-      <%= seminar.title %>
+      <p><%= link_to seminar.title, seminar %> <%= seminar.start_time %></p>
     </div>
 <% end %>

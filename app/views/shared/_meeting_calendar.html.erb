@@ -1,0 +1,11 @@
+<h2 class="text-center">Calendar</h2>
+
+<%= month_calendar(events: @meetings) do |date, meetings| %>
+    <%= date %>
+
+    <% meetings.each do |meeting| %>
+        <div>
+        <p><%= link_to meeting.name, meeting %></p>
+        </div>
+      <% end %>
+  <% end %>
