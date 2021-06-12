@@ -1,3 +1,4 @@
+<div class="d-flex justify-content-center">
 <%= form_with(model: counseling) do |form| %>
   <% if counseling.errors.any? %>
     <div id="error_explanation">
@@ -11,32 +12,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
+  <div class="form-group form-control-lg">
+    <%= form.label :name %><br>
     <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
     <%= form.label :attending %>
     <%= form.check_box :attending %>
   </div>
 
-  <div class="field">
-    <%= form.label :reason %>
+  <div class="form-group form-control-lg">
+    <%= form.label :reason %><br>
     <%= form.text_area :reason %>
   </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :meeting_id %>
-    <%= form.text_field :meeting_id %>
-  </div>
+  
+  <%= form.hidden_field :user_id , :value => current_user.id %>
+  <%= form.hidden_field :meeting_id , :value => @meeting.id %>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>

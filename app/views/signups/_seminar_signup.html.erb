@@ -1,12 +1,13 @@
+<div class="d-flex justify-content-center">
 <%= form_with model: [ @seminar, @seminar.signups.build ] do |form| %>
 
-    <div class="field">
-    <%= form.label :full_name %>
+    <div class="form-group form-control-lg>
+    <%= form.label :full_name %><br>
     <%= form.text_field :full_name %>
     </div>
 
   <div class="field">
-    <%= form.label :attending, "I'm attending" %>
+    <%= form.label :attending, "I'm attending" %><br>
     <%= form.radio_button :attending, "I'm attending" %>
   </div>
   <%= form.hidden_field :user_id , :value => current_user.id %>
@@ -18,3 +19,4 @@
   <%= form.submit %>
 </div>
     <% end %>
+    </div>

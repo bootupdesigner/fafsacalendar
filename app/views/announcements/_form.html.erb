@@ -1,3 +1,4 @@
+<div class="d-flex justify-content-center">
 <%= form_with(model: announcement) do |form| %>
   <% if announcement.errors.any? %>
     <div id="error_explanation">
@@ -11,13 +12,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
+  <div class="form-group form-control-lg">
+    <%= form.label :title %><br>
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
+  <div class="form-group form-control-lg">
+    <%= form.label :description %><br>
     <%= form.text_area :description %>
   </div>
 
@@ -27,3 +28,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>

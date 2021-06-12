@@ -1,0 +1,15 @@
+<table class="table table-striped table-hover table-secondary">
+  <thead>
+    <tr>
+      <th scope="col">Seminars</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seminars.each do |seminar| %>
+      <tr>
+        <td><p><b>Title: </b> <%= link_to seminar.title, seminar %><br><b>Description: </b><%= seminar.description %><br><b>Starts at: </b><%= seminar.start_time %> <br><b>Ends at: </b><%= seminar.end_time %></p></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

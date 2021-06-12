@@ -4,29 +4,19 @@
 
 <%= render 'shared/meeting_calendar' %>
 
-<table>
+
+
+<table class="table table-striped table-hover table-secondary">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Start time</th>
-      <th>End time</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th scope="col">Meetings</th>
     </tr>
   </thead>
 
   <tbody>
     <% @meetings.each do |meeting| %>
       <tr>
-        <td><%= meeting.name %></td>
-        <td><%= meeting.start_time %></td>
-        <td><%= meeting.end_time %></td>
-        <td><%= meeting.description %></td>
-        <td><%= meeting.user_id %></td>
-        <td><%= link_to 'Show', meeting %></td>
-        <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
-        <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><p><b>Counselor: </b> <%= link_to meeting.name, meeting %><br><b>Description: </b><%= meeting.description %><br><b>Starts at: </b><%= meeting.start_time %> <br><b>Ends at: </b><%= meeting.end_time %></p></td>
       </tr>
     <% end %>
   </tbody>

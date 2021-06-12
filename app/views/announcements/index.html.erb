@@ -2,32 +2,10 @@
 
 <h1>Announcements</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= render 'shared/announcements_list' %>
 
-  <tbody>
-    <% @announcements.each do |announcement| %>
-      <tr>
-        <td><%= announcement.title %></td>
-        <td><%= announcement.description %></td>
-        <td><%= announcement.user_id %></td>
-        <td><%= link_to 'Show', announcement %></td>
-        <td><%= link_to 'Edit', edit_announcement_path(announcement) %></td>
-        <td><%= link_to 'Destroy', announcement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<%= render 'shared/seminar_list' %>
+<h2>Upcoming Events</h2>
+<%= render 'shared/upcoming_events' %>
 <%= render 'shared/seminar_calendar' %>
 
 <%= link_to 'New Announcement', new_announcement_path %>
