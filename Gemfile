@@ -25,7 +25,11 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'simple_calendar', '~> 2.4', '>= 2.4.2'
 gem 'rails-i18n'
+gem 'bootstrap', '~> 5.0', '>= 5.0.1'
 
+gem 'sprockets-rails', '~> 3.2', '>= 3.2.2'
+
+gem 'jquery-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
