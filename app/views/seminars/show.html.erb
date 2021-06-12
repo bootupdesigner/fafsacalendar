@@ -28,7 +28,7 @@
 <p>There are <%= @seminar.signups.count %> people attending this event.</p>
 
 <% if @seminar.signups.count == 4 %>
-<p>Closed</p>
+<p style="color: #ff0000;">Closed</p>
 
 <% else %>
 <%= render 'signups/seminar_signup' %>

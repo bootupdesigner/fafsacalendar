@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_205419) do
+ActiveRecord::Schema.define(version: 2021_06_12_135001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,8 +24,41 @@ ActiveRecord::Schema.define(version: 2021_06_11_205419) do
     t.index ["user_id"], name: "index_announcements_on_user_id"
   end
 
+  create_table "counselings", force: :cascade do |t|
+    t.string "name"
+    t.boolean "attending"
+    t.text "reason"
+    t.bigint "user_id", null: false
+    t.bigint "meeting_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["meeting_id"], name: "index_counselings_on_meeting_id"
+    t.index ["user_id"], name: "index_counselings_on_user_id"
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_meetings_on_user_id"
+  end
+
+  create_table "one_on_ones", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_one_on_ones_on_user_id"
+  end
+
   create_table "seminars", force: :cascade do |t|
-    t.string "title"
     t.datetime "start_time"
     t.datetime "end_time"
     t.bigint "user_id", null: false
@@ -35,6 +68,7 @@ ActiveRecord::Schema.define(version: 2021_06_11_205419) do
     t.boolean "not_attending"
     t.text "description"
     t.string "image"
+    t.string "title"
     t.index ["user_id"], name: "index_seminars_on_user_id"
   end
 
@@ -62,6 +96,10 @@ ActiveRecord::Schema.define(version: 2021_06_11_205419) do
   end
 
   add_foreign_key "announcements", "users"
+  add_foreign_key "counselings", "meetings"
+  add_foreign_key "counselings", "users"
+  add_foreign_key "meetings", "users"
+  add_foreign_key "one_on_ones", "users"
   add_foreign_key "seminars", "users"
   add_foreign_key "signups", "seminars"
   add_foreign_key "signups", "users"

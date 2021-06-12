@@ -1,0 +1,42 @@
+<%= form_with(model: counseling) do |form| %>
+  <% if counseling.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(counseling.errors.count, "error") %> prohibited this counseling from being saved:</h2>
+
+      <ul>
+        <% counseling.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attending %>
+    <%= form.check_box :attending %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reason %>
+    <%= form.text_area :reason %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :meeting_id %>
+    <%= form.text_field :meeting_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

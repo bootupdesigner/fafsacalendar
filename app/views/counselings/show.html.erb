@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @counseling.name %>
+</p>
+
+<p>
+  <strong>Attending:</strong>
+  <%= @counseling.attending %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @counseling.reason %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @counseling.user_id %>
+</p>
+
+<p>
+  <strong>Meeting:</strong>
+  <%= @counseling.meeting_id %>
+</p>
+
+<%= link_to 'Edit', edit_counseling_path(@counseling) %> |
+<%= link_to 'Back', counselings_path %>

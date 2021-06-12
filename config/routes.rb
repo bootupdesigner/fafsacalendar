@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  resources :counselings
+  resources :meetings
+
+  resources :meetings do 
+    resource :counselings
+  end
+
   resources :seminars do
     resources :signups
   end
 
-  resources :seminars do 
-    resources :announcements
-end
 resources :signups
   resources :seminars
   resources :announcements

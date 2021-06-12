@@ -1,0 +1,2 @@
+module SingleRegistraionsHelper
+end
