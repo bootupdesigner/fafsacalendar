@@ -1,34 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1 class="text-center">
   <%= @seminar.title %>
-</p>
+</h1>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @seminar.start_time %>
-</p>
+<figure class="d-flex justify-content-center">
+<%= image_tag @seminar.image, style: 'width: 50vw; height: 50vh;' %>
+</figure>
 
-<p>
-  <strong>End time:</strong>
-  <%= @seminar.end_time %>
-</p>
+<table class="table table-striped table-hover table-secondary">
+  <thead>
+    <tr>
+      <th scope="col"><%= @seminar.title %></th>
+    </tr>
+  </thead>
 
-<p>
-<strong>Image URl</strong>
-<%= @seminar.image %>
-</p>
-
-<p>
-<strong>Description</strong>
+  <tbody>
+    <tr>
+      <th scope="row">
+      <p>Description: 
 <%= @seminar.description %>
 </p>
+<p>Start time:
+  <%= @seminar.start_time %></p>
+      </th>
+    <tr>
 
-<p>There are <%= @seminar.signups.count %> people attending this event.</p>
+  </tbody>
+
+</table>  
+
+<br>
+
+<h3 class="text-center">Reserve your seat at this event</h3>
+
+<p class="text-center">There are <%= @seminar.signups.count %> people attending this event.</p>
 
 <% if @seminar.signups.count == 4 %>
-<p style="color: #ff0000;">Closed</p>
+<p class="text-center" style="color: #ff0000;">Closed</p>
 
 <% else %>
 <%= render 'signups/seminar_signup' %>

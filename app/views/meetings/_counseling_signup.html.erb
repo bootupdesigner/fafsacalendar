@@ -7,8 +7,8 @@
     </div>
 
   <div class="form-group form-control-lg">
-    <%= form.label :attending, "I'm attending" %><br>
-    <%= form.radio_button :attending, "I'm attending" %>
+  <%= form.radio_button :attending, "I'm attending" %>
+    <%= form.label :attending, "Attending" %>
   </div>
   <%= form.hidden_field :user_id , :value => current_user.id %>
   <%= form.hidden_field :meeting_id , :value => @meeting.id %>

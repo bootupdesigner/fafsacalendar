@@ -1,34 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h2 class="text-center">
+  One On One with 
   <%= @meeting.name %>
-</p>
+</h2>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @meeting.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @meeting.end_time %>
-</p>
-
-<p>
-  <strong>Description:</strong>
+<p class="text-center">
   <%= @meeting.description %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @meeting.user_id %>
+<p class="text-center">
+  Start time: <%= @meeting.start_time %> | End time: <%= @meeting.end_time %>
 </p>
 
-<h2>Register for One-On-One Help</h2>
+
+
+
+<h2 class="text-center">Register for One-On-One Help</h2>
+
+<p class="text-center">There is <%= @meeting.counselings.count %> people attending this event.</p>
 
 <% if @meeting.counselings.count == 1 %>
-<p style="color: #ff0000">Closed</p>
+<p class="text-center" style="color: #ff0000">Closed</p>
 
 <% else %>
 <%= render 'counseling_signup' %>
